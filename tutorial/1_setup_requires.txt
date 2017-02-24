@@ -1,0 +1,21 @@
+
+const express = require('express'),
+  app = express(),
+  session = require('express-session'),
+  https = require('https'),
+  cookieparser = require('cookie-parser'),
+  cookie = require('cookie'),
+  bodyparser = require('body-parser'),
+  pug = require('pug'),
+  logger = require('morgan'),
+  path = require('path'),
+  passport = require('passport'),
+  mongoose = require('mongoose'),
+  bcrypt = require('bcrypt'),
+  server = require('http').createServer(app),
+  sio = require('socket.io')(server),
+  lib = require('./lib.js')
+
+
+
+  server.listen(3000);

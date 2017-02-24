@@ -1,0 +1,13 @@
+doctype html
+html(lang="en")
+  head
+    title= "Login"
+  body
+    form(action="/login", method="POST")
+      label Email:
+        input(type="text", placeholder="Email", name="email")
+      br
+      label Password:
+        input(type="password", placeholder="Password", name="password")
+      br
+      input(type="submit")

@@ -1,0 +1,27 @@
+{
+  "name": "huscii_chat",
+  "version": "1.0.0",
+  "description": "A real-time chat application.",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "chat",
+    "app"
+  ],
+  "author": "Damiene Stewart",
+  "license": "MIT",
+  "dependencies": {
+    "bcrypt": "^1.0.2",
+    "body-parser": "^1.16.1",
+    "cookie-parser": "^1.4.3",
+    "express": "^4.14.1",
+    "express-session": "^1.15.1",
+    "mongoose": "^4.8.4",
+    "morgan": "^1.8.1",
+    "passport": "^0.3.2",
+    "pug": "^2.0.0-beta11",
+    "socket.io": "^1.7.3"
+  }
+}

@@ -1,0 +1,41 @@
+doctype html
+html(lang="en")
+  head
+    title= "Huscii Chat"
+  body
+    h1 Simple Chat App
+    p Testing a real time chat app :).
+
+    h2 Messages
+    ul(id="message-list")
+
+    label Send Message:
+      input(id="message-text", type="text", placeholder="Message")
+      input(id="message-button", type="submit")
+
+    script(src="https://code.jquery.com/jquery-3.1.1.min.js"
+    integrity="sha256-hVVnYaiADRTO2PzUGmuLJr8BLUSjGIZsDYGmIJLv2b8="
+    crossorigin="anonymous")
+    script(src="http://192.168.1.114:3000/socket.io/socket.io.js")
+    script.
+      var socket = io.connect('http://192.168.1.114:3000');
+      socket.on('connect', function(data) {
+        socket.emit('join', 'Hello World from client');
+      });
+      socket.on('previous-messages', function(data) {
+        for (var i = 0; i < data.length; i++) {
+          $("#message-list").append("<li>" + data[i].user + " says: " + data[i].message + " - @: " + data[i].created + "</li>");
+        }
+      });
+      socket.on('message', function(data) {
+        $("#message-list").append("<li>" + data.user + " says: " + data.message + " - @: " + data.created + "</li>");
+      })
+    script.
+      $("#message-button").click(function() {
+          var message = $("#message-text").val();
+          if (message == "")
+            return alert("Please enter a message.");
+          var user = document.cookie;
+
+          socket.emit('message', {cookie: document.cookie, message: message});
+        });

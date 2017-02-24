@@ -1,0 +1,19 @@
+doctype html
+html(lang="en")
+  head
+    title= "Register"
+  body
+    form(action="/register", method="POST")
+      label First Name:
+        input(type="text", placeholder="First Name", name="first_name")
+      br
+      label Last Name:
+        input(type="text", placeholder="Last Name", name="last_name")
+      br
+      label Email:
+        input(type="text", placeholder="Email", name="email")
+      br
+      label Password:
+        input(type="password", placeholder="Password", name="password")
+      br
+      input(type="submit")
